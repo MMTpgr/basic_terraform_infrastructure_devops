@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "my_resource-group" {
   location = var.location
 }
 
-# Call the network module opop
+# Call the network module opopa
 module "network" {
   source      = "./modules/network"
   vnet_name   = var.vnet_name
