@@ -1,13 +1,25 @@
+terraform {
+  required_version = ">=1.0.0"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.52.0"
+    }
+  }
+  backend "azurerm" {
+    resource_group_name   = "grp"
+    storage_account_name  = "vaullerey"
+    container_name        = "blob"
+    key                   = "prod.terraform.tfstate"
+    
+  }
+}
+
 provider "azurerm" {
-  features {}
-  subscription_id = "22d0cfe3-b300-4101-a6b1-a6ae9ee75853"
+  features {
+    
+  }
 }
-
-resource "azurerm_resource_group" "my_resource-group" {
-  name = var.resource_group_name
-  location = var.location
-}
-
 # Call the network module opopa
 module "network" {
   source      = "./modules/network"
