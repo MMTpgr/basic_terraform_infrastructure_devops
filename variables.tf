@@ -32,6 +32,7 @@ variable "admin_username" {
 
 variable "admin_password" {
   description = "Password for the VM admin user"
+  default = "MedTag!2005@"
   sensitive   = true
 }
 
