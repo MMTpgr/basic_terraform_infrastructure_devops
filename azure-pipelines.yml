@@ -20,28 +20,28 @@ steps:
     backendAzureRmStorageAccountName: 'vaullerey'
     backendAzureRmContainerName: 'blob'
     backendAzureRmKey: 'prod.terraform.tfstate'
-# - task: TerraformTaskV4@4
-#   displayName: 'terraform validate'
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'validate'
-# - task: TerraformTaskV4@4
-#   displayName: "terraform plan"
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'plan'
-#     environmentServiceNameAzureRM: 'Azure subscription 1(42ff5256-95a4-4525-96ff-ee40aa6fd277)'
-# - task: TerraformTaskV4@4
-#   displayName: "terraform apply"
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'apply'
-#     commandOptions: '-auto-approve'
-#     environmentServiceNameAzureRM: 'Azure subscription 1(42ff5256-95a4-4525-96ff-ee40aa6fd277)'
 - task: TerraformTaskV4@4
+  displayName: 'terraform validate'
   inputs:
     provider: 'azurerm'
-    command: 'destroy'
+    command: 'validate'
+- task: TerraformTaskV4@4
+  displayName: "terraform plan"
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'Azure subscription 1(42ff5256-95a4-4525-96ff-ee40aa6fd277)'
+- task: TerraformTaskV4@4
+  displayName: "terraform apply"
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
     commandOptions: '-auto-approve'
     environmentServiceNameAzureRM: 'Azure subscription 1(42ff5256-95a4-4525-96ff-ee40aa6fd277)'
+# - task: TerraformTaskV4@4
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'destroy'
+#     commandOptions: '-auto-approve'
+#     environmentServiceNameAzureRM: 'Azure subscription 1(42ff5256-95a4-4525-96ff-ee40aa6fd277)'
   
